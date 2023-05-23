@@ -88,7 +88,7 @@ const teams = {
 const app = express();
 app.use(cors());
 
-app.get('/.netlify/functions/server', async (req, res) => {
+app.get("/.netlify/functions/server", async (req, res) => {
     const result = {};
     const promises = [];
 
@@ -101,12 +101,18 @@ app.get('/.netlify/functions/server', async (req, res) => {
 
             //* create a promise for each player and push it to our promises array
             promises.push(
-                axios.get(url).then(response => {
+                axios.get(url).then((response) => {
                     const $ = cheerio.load(response.data);
 
-                    const fyysinen = $(".biorytmit-teksti table tr:nth-child(1) td:nth-child(2)").text();
-                    const tunne = $(".biorytmit-teksti table tr:nth-child(2) td:nth-child(2)").text();
-                    const aly = $(".biorytmit-teksti table tr:nth-child(3) td:nth-child(2)").text();
+                    const fyysinen = $(
+                        ".biorytmit-teksti table tr:nth-child(1) td:nth-child(2)"
+                    ).text();
+                    const tunne = $(
+                        ".biorytmit-teksti table tr:nth-child(2) td:nth-child(2)"
+                    ).text();
+                    const aly = $(
+                        ".biorytmit-teksti table tr:nth-child(3) td:nth-child(2)"
+                    ).text();
 
                     //* directly assign the result for each player
                     result[team][player] = { fyysinen, tunne, aly };
@@ -120,6 +126,4 @@ app.get('/.netlify/functions/server', async (req, res) => {
     res.json(result);
 });
 
-
 module.exports.handler = serverless(app);
-
