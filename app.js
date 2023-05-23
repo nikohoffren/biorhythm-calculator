@@ -63,7 +63,7 @@ fetch("/.netlify/functions/server")
             const tunneAverage = (tunneSum / playerCount).toFixed(2);
             const alyAverage = (alySum / playerCount).toFixed(2);
 
-            contentDiv.innerHTML += `<h2>${team} (Fyysinen avg: ${fyysinenAverage}%, Tunne avg: ${tunneAverage}%, Aly avg: ${alyAverage}%)</h2><br />`;
+            contentDiv.innerHTML += `<h2>${team} (Fyysinen keskiarvo: ${fyysinenAverage}%, Tunne keskiarvo: ${tunneAverage}%, Äly keskiarvo: ${alyAverage}%)</h2><br />`;
 
             for (let player in data[team]) {
                 const playerData = data[team][player];
@@ -79,7 +79,7 @@ fetch("/.netlify/functions/server")
                 } ${playerData.tunne === maxValues.tunne ? "max" : ""}">${
                     playerData.tunne
                 }%</span></p>`;
-                contentDiv.innerHTML += `<p>Aly: <span class="${
+                contentDiv.innerHTML += `<p>Äly: <span class="${
                     playerData.aly === minValues.aly ? "min" : ""
                 } ${playerData.aly === maxValues.aly ? "max" : ""}">${
                     playerData.aly
