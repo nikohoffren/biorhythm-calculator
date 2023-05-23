@@ -26,14 +26,14 @@ fetch("/.netlify/functions/server")
             contentDiv.innerHTML += `<h3>${player}</h3>`;
             contentDiv.innerHTML += `<p>Fyysinen: ${playerData.fyysinen}</p>`;
             contentDiv.innerHTML += `<p>Tunne: ${playerData.tunne}</p>`;
-            contentDiv.innerHTML += `<p>Aly: ${playerData.aly}</p>`;
+            contentDiv.innerHTML += `<p>Äly: ${playerData.aly}</p><br />`;
         }
 
         const fyysinenAverage = (fyysinenSum / playerCount).toFixed(2);
         const tunneAverage = (tunneSum / playerCount).toFixed(2);
         const alyAverage = (alySum / playerCount).toFixed(2);
 
-        contentDiv.innerHTML = `<h2>${team} (Fyysinen keskiarvo: ${fyysinenAverage}%, Tunne keskiarvo: ${tunneAverage}%, Aly keskiarvo: ${alyAverage}%)</h2>` + contentDiv.innerHTML;
+        contentDiv.innerHTML = `<h2>${team} (Fyysinen keskiarvo: ${fyysinenAverage}%, Tunne keskiarvo: ${tunneAverage}%, Äly keskiarvo: ${alyAverage}%)</h2><br />` + contentDiv.innerHTML;
     }
   })
   .catch((error) => {
