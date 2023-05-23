@@ -13,7 +13,7 @@ fetch("/.netlify/functions/server")
     `;
         document.head.appendChild(style);
 
-        const contentDiv = document.getElementById("content");
+        const contentDiv = document.querySelector("#content");
 
         for (let team in data) {
             let minValues = { fyysinen: 100, tunne: 100, aly: 100 };
